@@ -1,45 +1,77 @@
-import { motion } from 'motion/react';
+﻿import { motion } from 'motion/react';
 import { GraduationCap, Code2, Database, Cloud } from 'lucide-react';
 import { ImageWithFallback } from './figma/ImageWithFallback';
+import type { Lang } from '../types/lang';
 
-export function About() {
-  const highlights = [
-    {
-      icon: Code2,
-      title: 'Full-Stack Delivery',
-      description:
-        'React (Vite/TS), FastAPI, Spring Boot, REST/OpenAPI, JWT and RBAC',
-    },
-    {
-      icon: Database,
-      title: 'Data & SQL',
-      description:
-        'ETL with Pandas/NumPy, Azure SQL Server, modeling for dashboards',
-    },
-    {
-      icon: Cloud,
-      title: 'Cloud & Integrations',
-      description:
-        'Azure, AWS, Docker, Kubernetes, Jenkins, GitHub Actions, Lark APIs',
-    },
-    {
-      icon: GraduationCap,
-      title: 'Strong Foundations',
-      description:
-        'M.S. Electrical & Computer Engineering; B.S. Computer Science',
-    },
-  ];
+type AboutProps = {
+  lang: Lang;
+};
+
+export function About({ lang }: AboutProps) {
+  const isZh = lang === 'zh';
+
+  const highlights = isZh
+    ? [
+        {
+          icon: Code2,
+          title: '全栈交付',
+          description: 'React (Vite/TS)、FastAPI、Spring Boot、REST/OpenAPI、JWT/RBAC',
+        },
+        {
+          icon: Database,
+          title: '数据与 SQL',
+          description: 'Pandas/NumPy ETL、Azure SQL Server、面向看板的指标建模',
+        },
+        {
+          icon: Cloud,
+          title: '云与系统集成',
+          description: 'Azure、AWS、Docker、K8s、Jenkins、GitHub Actions、Lark API',
+        },
+        {
+          icon: GraduationCap,
+          title: '扎实基础',
+          description: 'ECE 硕士 + 计算机科学学士，工程实践与理论并重',
+        },
+      ]
+    : [
+        {
+          icon: Code2,
+          title: 'Full-Stack Delivery',
+          description: 'React (Vite/TS), FastAPI, Spring Boot, REST/OpenAPI, JWT/RBAC',
+        },
+        {
+          icon: Database,
+          title: 'Data & SQL',
+          description: 'ETL with Pandas/NumPy, Azure SQL Server, dashboard metric modeling',
+        },
+        {
+          icon: Cloud,
+          title: 'Cloud & Integrations',
+          description: 'Azure, AWS, Docker, Kubernetes, Jenkins, GitHub Actions, Lark APIs',
+        },
+        {
+          icon: GraduationCap,
+          title: 'Strong Foundations',
+          description: 'M.S. ECE + B.S. Computer Science with practical engineering focus',
+        },
+      ];
 
   const education = [
     {
       school: 'Johns Hopkins University',
-      degree: 'Master of Science in Electrical and Computer Engineering',
+      degree:
+        lang === 'zh'
+          ? '电气与计算机工程硕士'
+          : 'Master of Science in Electrical and Computer Engineering',
       location: 'Baltimore, MD',
       period: 'Jan 2024 – May 2025',
     },
     {
       school: 'Arizona State University',
-      degree: 'Bachelor of Science in Computer Science',
+      degree:
+        lang === 'zh'
+          ? '计算机科学学士'
+          : 'Bachelor of Science in Computer Science',
       location: 'Tempe, AZ',
       period: 'Aug 2020 – Dec 2023',
     },
@@ -55,10 +87,11 @@ export function About() {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl md:text-5xl mb-4">About Me</h2>
+          <h2 className="text-4xl md:text-5xl mb-4">{isZh ? '关于我' : 'About Me'}</h2>
           <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-            Engineer focused on scalable backends, clear APIs, and analytics
-            that operations teams can trust
+            {isZh
+              ? '聚焦可扩展后端、清晰 API 与可落地业务分析的工程师'
+              : 'Engineer focused on scalable backends, clear APIs, and analytics that operations teams can trust'}
           </p>
         </motion.div>
 
@@ -71,7 +104,7 @@ export function About() {
           >
             <ImageWithFallback
               src="https://images.unsplash.com/photo-1754548930550-be9fa88874f4?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxzb2Z0d2FyZSUyMGRldmVsb3BlciUyMHdvcmtzcGFjZSUyMGRlc2t8ZW58MXx8fHwxNzc1MjM0MTg0fDA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral"
-              alt="Workspace"
+              alt={isZh ? '工作环境' : 'Workspace'}
               className="w-full h-[400px] object-cover rounded-2xl shadow-xl"
             />
           </motion.div>
@@ -82,23 +115,20 @@ export function About() {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <h3 className="text-3xl mb-4">Background</h3>
+            <h3 className="text-3xl mb-4">{isZh ? '背景介绍' : 'Background'}</h3>
             <p className="text-gray-700 mb-4">
-              I completed my M.S. in Electrical and Computer Engineering at
-              Johns Hopkins and my B.S. in Computer Science at Arizona State
-              University. Along the way I interned in full-stack and cloud
-              roles—from Spring Boot task platforms and AWS serverless systems
-              to Shopify and POS integrations—before joining GOFO as a software
-              engineer.
+              {isZh
+                ? '我在 Johns Hopkins University 完成电气与计算机工程硕士，在 Arizona State University 完成计算机科学学士。期间经历了全栈与云方向的多段实习，从 Spring Boot 任务系统、AWS Serverless，到 Shopify 与 POS 集成，最终加入 GOFO 担任软件工程师。'
+                : 'I completed my M.S. in Electrical and Computer Engineering at Johns Hopkins and my B.S. in Computer Science at Arizona State University. Along the way I worked on full-stack and cloud internships before joining GOFO as a software engineer.'}
             </p>
             <p className="text-gray-700 mb-6">
-              Today I work on region-level KPI dashboards, ETL and validation,
-              SQL-backed metrics, and integrations (e.g. Lark/Feishu) so teams
-              can monitor performance at scale.
+              {isZh
+                ? '目前我主要负责区域级 KPI 看板、ETL 与数据校验、SQL 指标建模，以及 Lark/Feishu 等系统集成，帮助业务团队高效监控与决策。'
+                : 'Today I work on region-level KPI dashboards, ETL and validation, SQL-backed metrics, and integrations (e.g. Lark/Feishu) so teams can monitor performance at scale.'}
             </p>
 
             <h4 className="text-xl font-semibold text-gray-900 mb-3">
-              Education
+              {isZh ? '教育经历' : 'Education'}
             </h4>
             <ul className="space-y-4">
               {education.map((e) => (

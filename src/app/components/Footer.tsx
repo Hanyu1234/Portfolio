@@ -1,20 +1,36 @@
-import { Mail } from 'lucide-react';
+﻿import { Mail } from 'lucide-react';
+import type { Lang } from '../types/lang';
 
-export function Footer() {
+type FooterProps = {
+  lang: Lang;
+};
+
+export function Footer({ lang }: FooterProps) {
+  const isZh = lang === 'zh';
   const currentYear = new Date().getFullYear();
 
   const scrollTo = (id: string) => {
     document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
   };
 
-  const quickLinks: { label: string; id: string }[] = [
-    { label: 'Home', id: 'home' },
-    { label: 'About', id: 'about' },
-    { label: 'Experience', id: 'experience' },
-    { label: 'Projects', id: 'projects' },
-    { label: 'Skills', id: 'skills' },
-    { label: 'Contact', id: 'contact' },
-  ];
+  const quickLinks =
+    lang === 'zh'
+      ? [
+          { label: '首页', id: 'home' },
+          { label: '关于我', id: 'about' },
+          { label: '工作经历', id: 'experience' },
+          { label: '项目', id: 'projects' },
+          { label: '技能', id: 'skills' },
+          { label: '联系我', id: 'contact' },
+        ]
+      : [
+          { label: 'Home', id: 'home' },
+          { label: 'About', id: 'about' },
+          { label: 'Experience', id: 'experience' },
+          { label: 'Projects', id: 'projects' },
+          { label: 'Skills', id: 'skills' },
+          { label: 'Contact', id: 'contact' },
+        ];
 
   return (
     <footer className="bg-gray-900 text-white py-12">
@@ -25,13 +41,14 @@ export function Footer() {
               Peter Zhu
             </h3>
             <p className="text-gray-400">
-              Full-stack software engineer — React, FastAPI, Spring Boot, data
-              pipelines, Azure/AWS.
+              {isZh
+                ? '全栈软件工程师：React、FastAPI、Spring Boot、数据处理与 Azure/AWS 云实践。'
+                : 'Full-stack software engineer: React, FastAPI, Spring Boot, data pipelines, Azure/AWS.'}
             </p>
           </div>
 
           <div>
-            <h4 className="text-lg font-semibold mb-4">Quick Links</h4>
+            <h4 className="text-lg font-semibold mb-4">{isZh ? '快速导航' : 'Quick Links'}</h4>
             <ul className="space-y-2">
               {quickLinks.map((item) => (
                 <li key={item.id}>
@@ -48,7 +65,7 @@ export function Footer() {
           </div>
 
           <div>
-            <h4 className="text-lg font-semibold mb-4">Contact</h4>
+            <h4 className="text-lg font-semibold mb-4">{isZh ? '联系方式' : 'Contact'}</h4>
             <a
               href="mailto:hzhu1220@outlook.com"
               className="inline-flex items-center gap-2 text-gray-400 hover:text-white transition-colors"

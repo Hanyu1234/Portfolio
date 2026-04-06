@@ -1,8 +1,14 @@
-import { useState, useEffect } from 'react';
+﻿import { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
 import { motion } from 'motion/react';
+import type { Lang } from '../types/lang';
 
-export function Header() {
+type HeaderProps = {
+  lang: Lang;
+  setLang: (lang: Lang) => void;
+};
+
+export function Header({ lang, setLang }: HeaderProps) {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
@@ -22,14 +28,24 @@ export function Header() {
     }
   };
 
-  const navItems = [
-    { label: 'Home', id: 'home' },
-    { label: 'About', id: 'about' },
-    { label: 'Experience', id: 'experience' },
-    { label: 'Projects', id: 'projects' },
-    { label: 'Skills', id: 'skills' },
-    { label: 'Contact', id: 'contact' },
-  ];
+  const navItems =
+    lang === 'zh'
+      ? [
+          { label: '首页', id: 'home' },
+          { label: '关于我', id: 'about' },
+          { label: '工作经历', id: 'experience' },
+          { label: '项目', id: 'projects' },
+          { label: '技能', id: 'skills' },
+          { label: '联系我', id: 'contact' },
+        ]
+      : [
+          { label: 'Home', id: 'home' },
+          { label: 'About', id: 'about' },
+          { label: 'Experience', id: 'experience' },
+          { label: 'Projects', id: 'projects' },
+          { label: 'Skills', id: 'skills' },
+          { label: 'Contact', id: 'contact' },
+        ];
 
   return (
     <motion.header
@@ -60,17 +76,33 @@ export function Header() {
               {item.label}
             </button>
           ))}
+          <button
+            type="button"
+            onClick={() => setLang(lang === 'zh' ? 'en' : 'zh')}
+            className="px-3 py-1.5 rounded-lg border border-gray-300 text-sm hover:bg-gray-100"
+          >
+            {lang === 'zh' ? 'EN' : '中文'}
+          </button>
         </div>
 
-        <button
-          type="button"
-          className="md:hidden text-gray-700"
-          onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-          aria-expanded={isMobileMenuOpen}
-          aria-label="Toggle menu"
-        >
-          {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
-        </button>
+        <div className="md:hidden flex items-center gap-2">
+          <button
+            type="button"
+            onClick={() => setLang(lang === 'zh' ? 'en' : 'zh')}
+            className="px-2.5 py-1 rounded-md border border-gray-300 text-xs"
+          >
+            {lang === 'zh' ? 'EN' : '中文'}
+          </button>
+          <button
+            type="button"
+            className="text-gray-700"
+            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            aria-expanded={isMobileMenuOpen}
+            aria-label="Toggle menu"
+          >
+            {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+          </button>
+        </div>
 
         {isMobileMenuOpen && (
           <motion.div

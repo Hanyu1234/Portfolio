@@ -1,0 +1,43 @@
+﻿<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="720" viewBox="0 0 1280 720" fill="none">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1280" y2="720" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#F8FAFC"/>
+      <stop offset="1" stop-color="#E0F2FE"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#0F172A"/>
+      <stop offset="1" stop-color="#0E7490"/>
+    </linearGradient>
+  </defs>
+  <rect width="1280" height="720" fill="url(#bg)"/>
+  <rect x="60" y="40" width="1160" height="640" rx="18" fill="white" stroke="#E2E8F0"/>
+  <rect x="60" y="40" width="1160" height="56" rx="18" fill="#F8FAFC"/>
+  <circle cx="92" cy="68" r="7" fill="#F87171"/>
+  <circle cx="116" cy="68" r="7" fill="#FBBF24"/>
+  <circle cx="140" cy="68" r="7" fill="#34D399"/>
+  <text x="180" y="73" font-family="Segoe UI, Arial" font-size="18" fill="#0F172A">Peter Zhu Portfolio</text>
+  <rect x="1040" y="54" width="72" height="28" rx="14" fill="#E2E8F0"/>
+  <text x="1058" y="73" font-family="Segoe UI, Arial" font-size="14" fill="#0F172A">中文/EN</text>
+
+  <text x="110" y="170" font-family="Segoe UI, Arial" font-size="54" font-weight="700" fill="#0F172A">你好，我是 Peter Zhu</text>
+  <text x="110" y="212" font-family="Segoe UI, Arial" font-size="30" fill="#334155">Full-Stack Software Engineer</text>
+  <text x="110" y="252" font-family="Segoe UI, Arial" font-size="20" fill="#475569">React / FastAPI / Spring Boot / Azure / AWS</text>
+
+  <rect x="110" y="286" width="190" height="46" rx="10" fill="url(#accent)"/>
+  <text x="142" y="316" font-family="Segoe UI, Arial" font-size="18" fill="white">查看经历 View</text>
+
+  <rect x="740" y="130" width="420" height="240" rx="16" fill="#F1F5F9" stroke="#E2E8F0"/>
+  <text x="760" y="170" font-family="Segoe UI, Arial" font-size="20" fill="#0F172A">Hero Image Area</text>
+
+  <rect x="110" y="390" width="340" height="220" rx="14" fill="#F8FAFC" stroke="#E2E8F0"/>
+  <rect x="470" y="390" width="340" height="220" rx="14" fill="#F8FAFC" stroke="#E2E8F0"/>
+  <rect x="830" y="390" width="330" height="220" rx="14" fill="#F8FAFC" stroke="#E2E8F0"/>
+
+  <text x="130" y="430" font-family="Segoe UI, Arial" font-size="24" fill="#0F172A">关于我 / About</text>
+  <text x="490" y="430" font-family="Segoe UI, Arial" font-size="24" fill="#0F172A">工作经历 / Experience</text>
+  <text x="850" y="430" font-family="Segoe UI, Arial" font-size="24" fill="#0F172A">项目 / Projects</text>
+
+  <text x="130" y="468" font-family="Segoe UI, Arial" font-size="16" fill="#64748B">双语切换 + 个人经历展示</text>
+  <text x="490" y="468" font-family="Segoe UI, Arial" font-size="16" fill="#64748B">Resume-driven content</text>
+  <text x="850" y="468" font-family="Segoe UI, Arial" font-size="16" fill="#64748B">GitHub Pages Ready</text>
+</svg>

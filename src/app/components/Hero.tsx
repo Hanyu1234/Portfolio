@@ -1,8 +1,15 @@
-import { motion } from 'motion/react';
+﻿import { motion } from 'motion/react';
 import { Mail, Phone, ArrowDown } from 'lucide-react';
 import { ImageWithFallback } from './figma/ImageWithFallback';
+import type { Lang } from '../types/lang';
 
-export function Hero() {
+type HeroProps = {
+  lang: Lang;
+};
+
+export function Hero({ lang }: HeroProps) {
+  const isZh = lang === 'zh';
+
   const scrollToSection = (id: string) => {
     const element = document.getElementById(id);
     if (element) {
@@ -25,19 +32,18 @@ export function Hero() {
             transition={{ duration: 0.8 }}
           >
             <h1 className="text-5xl md:text-6xl lg:text-7xl mb-4">
-              Hi, I&apos;m{' '}
+              {isZh ? '你好，我是 ' : "Hi, I'm "}
               <span className="bg-gradient-to-r from-blue-900 to-cyan-700 bg-clip-text text-transparent">
                 Peter Zhu
               </span>
             </h1>
             <h2 className="text-2xl md:text-3xl text-gray-700 mb-6">
-              Full-Stack Software Engineer
+              {isZh ? '全栈软件工程师' : 'Full-Stack Software Engineer'}
             </h2>
             <p className="text-lg text-gray-600 mb-8 max-w-lg">
-              I build data-backed web products end to end: React/TypeScript
-              frontends, FastAPI and Spring Boot services, SQL/ETL pipelines,
-              and cloud integrations (Azure, AWS). Currently shipping
-              region-scale KPI tooling at GOFO.
+              {isZh
+                ? '我专注于端到端的数据驱动产品开发：React/TypeScript 前端、FastAPI 与 Spring Boot 后端、SQL/ETL 数据链路和 Azure/AWS 云集成。目前在 GOFO 负责区域级 KPI 平台建设。'
+                : 'I build data-backed web products end to end: React/TypeScript frontends, FastAPI and Spring Boot services, SQL/ETL pipelines, and cloud integrations (Azure, AWS). Currently shipping region-scale KPI tooling at GOFO.'}
             </p>
 
             <div className="flex gap-4 mb-8">
@@ -63,14 +69,14 @@ export function Hero() {
                 onClick={() => scrollToSection('experience')}
                 className="px-8 py-3 bg-gradient-to-r from-blue-900 to-cyan-700 text-white rounded-lg hover:shadow-lg transition-all"
               >
-                View Experience
+                {isZh ? '查看经历' : 'View Experience'}
               </button>
               <button
                 type="button"
                 onClick={() => scrollToSection('contact')}
                 className="px-8 py-3 border-2 border-slate-700 text-slate-700 rounded-lg hover:bg-slate-700 hover:text-white transition-all"
               >
-                Get in Touch
+                {isZh ? '联系我' : 'Get in Touch'}
               </button>
             </div>
           </motion.div>
@@ -93,7 +99,7 @@ export function Hero() {
             <motion.div
               animate={{ y: [0, -20, 0] }}
               transition={{ duration: 3, repeat: Infinity }}
-              className="absolute -top-4 -right-4 bg-white rounded-lg shadow-xl p-4 max-w-[200px]"
+              className="absolute -top-4 -right-4 bg-white rounded-lg shadow-xl p-4 max-w-[220px]"
             >
               <p className="text-sm font-semibold">M.S. ECE · Johns Hopkins</p>
             </motion.div>
@@ -101,7 +107,7 @@ export function Hero() {
             <motion.div
               animate={{ y: [0, 20, 0] }}
               transition={{ duration: 3, repeat: Infinity, delay: 0.5 }}
-              className="absolute -bottom-4 -left-4 bg-white rounded-lg shadow-xl p-4 max-w-[200px]"
+              className="absolute -bottom-4 -left-4 bg-white rounded-lg shadow-xl p-4 max-w-[220px]"
             >
               <p className="text-sm font-semibold">Software Engineer @ GOFO</p>
             </motion.div>

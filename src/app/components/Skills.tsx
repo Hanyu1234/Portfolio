@@ -1,84 +1,78 @@
-import { motion } from 'motion/react';
+﻿import { motion } from 'motion/react';
+import type { Lang } from '../types/lang';
 
-const skillCategories: { title: string; items: string[] }[] = [
-  {
-    title: 'Programming Languages',
-    items: [
-      'Python',
-      'Java',
-      'JavaScript',
-      'TypeScript',
-      'SQL',
-      'C++',
-    ],
-  },
-  {
-    title: 'Development',
-    items: [
-      'React (Vite)',
-      'FastAPI',
-      'Spring Boot (MVC/Data/Cloud)',
-      'RESTful APIs',
-      'JWT (JOSE)',
-      'HTML5 / CSS3',
-      'Node.js',
-      'Tailwind CSS',
-      'PyTorch',
-      'Swagger / OpenAPI',
-    ],
-  },
-  {
-    title: 'Data & Analytics',
-    items: [
-      'Pandas',
-      'NumPy',
-      'Power BI (DAX / Power Query)',
-      'Excel (Pivot / Power Query)',
-    ],
-  },
-  {
-    title: 'Database Systems',
-    items: [
-      'Azure SQL Server',
-      'MySQL',
-      'MongoDB',
-      'Oracle',
-      'Snowflake',
-    ],
-  },
-  {
-    title: 'Cloud & DevOps',
-    items: [
-      'Azure',
-      'AWS',
-      'Docker',
-      'Kubernetes',
-      'Jenkins',
-      'GitHub Actions',
-      'Git',
-      'Swagger',
-      'Postman',
-    ],
-  },
-];
+type SkillsProps = {
+  lang: Lang;
+};
 
-const alsoFamiliar = [
-  'Spring Security',
-  'JPA',
-  'Redux / Thunk',
-  'Axios',
-  'Google Maps API',
-  'WebSocket',
-  'Terraform',
-  'Lambda',
-  'DynamoDB',
-  'API Gateway',
-  'Shopify (Liquid, Admin API)',
-  'Lark / Feishu Open API',
-  'Tableau',
-];
+export function Skills({ lang }: SkillsProps) {
+  const isZh = lang === 'zh';
 
-export function Skills() {
+  const skillCategories: { title: string; items: string[] }[] = [
+    {
+      title: isZh ? '编程语言' : 'Programming Languages',
+      items: ['Python', 'Java', 'JavaScript', 'TypeScript', 'SQL', 'C++'],
+    },
+    {
+      title: isZh ? '开发框架' : 'Development',
+      items: [
+        'React (Vite)',
+        'FastAPI',
+        'Spring Boot (MVC/Data/Cloud)',
+        'RESTful APIs',
+        'JWT (JOSE)',
+        'HTML5 / CSS3',
+        'Node.js',
+        'Tailwind CSS',
+        'PyTorch',
+        'Swagger / OpenAPI',
+      ],
+    },
+    {
+      title: isZh ? '数据分析' : 'Data & Analytics',
+      items: [
+        'Pandas',
+        'NumPy',
+        'Power BI (DAX / Power Query)',
+        'Excel (Pivot / Power Query)',
+      ],
+    },
+    {
+      title: isZh ? '数据库' : 'Database Systems',
+      items: ['Azure SQL Server', 'MySQL', 'MongoDB', 'Oracle', 'Snowflake'],
+    },
+    {
+      title: isZh ? '云与 DevOps' : 'Cloud & DevOps',
+      items: [
+        'Azure',
+        'AWS',
+        'Docker',
+        'Kubernetes',
+        'Jenkins',
+        'GitHub Actions',
+        'Git',
+        'Swagger',
+        'Postman',
+      ],
+    },
+  ];
+
+  const alsoFamiliar = [
+    'Spring Security',
+    'JPA',
+    'Redux / Thunk',
+    'Axios',
+    'Google Maps API',
+    'WebSocket',
+    'Terraform',
+    'Lambda',
+    'DynamoDB',
+    'API Gateway',
+    'Shopify (Liquid, Admin API)',
+    'Lark / Feishu Open API',
+    'Tableau',
+  ];
+
   return (
     <section id="skills" className="py-20 bg-gray-50">
       <div className="container mx-auto px-4">
@@ -89,10 +83,11 @@ export function Skills() {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl md:text-5xl mb-4">Technical Skills</h2>
+          <h2 className="text-4xl md:text-5xl mb-4">{isZh ? '技术技能' : 'Technical Skills'}</h2>
           <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-            Stack and tools from my resume—aligned with recent full-stack and
-            data work
+            {isZh
+              ? '来自简历并结合近期项目实践的核心技术栈'
+              : 'Stack and tools from my resume, aligned with recent full-stack and data work'}
           </p>
         </motion.div>
 
@@ -130,7 +125,9 @@ export function Skills() {
           transition={{ duration: 0.6, delay: 0.2 }}
           className="mt-12 text-center max-w-4xl mx-auto"
         >
-          <h3 className="text-2xl mb-6">Also Used in Projects & Internships</h3>
+          <h3 className="text-2xl mb-6">
+            {isZh ? '项目中也常用到' : 'Also Used in Projects & Internships'}
+          </h3>
           <div className="flex flex-wrap justify-center gap-3">
             {alsoFamiliar.map((skill, index) => (
               <motion.span
