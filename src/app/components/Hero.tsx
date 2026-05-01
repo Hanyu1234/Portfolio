@@ -55,7 +55,7 @@ export function Hero({ lang }: HeroProps) {
                 <Mail size={24} />
               </a>
               <a
-                href="tel:+12025945029"
+                href="tel:+14104587621"
                 className="p-3 bg-slate-800 text-white rounded-full hover:bg-slate-700 transition-colors"
                 aria-label="Phone"
               >
@@ -89,7 +89,7 @@ export function Hero({ lang }: HeroProps) {
           >
             <div className="relative rounded-2xl overflow-hidden shadow-2xl">
               <ImageWithFallback
-                src="https://images.unsplash.com/photo-1576558656222-ba66febe3dec?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxwcm9mZXNzaW9uYWwlMjBoZWFkc2hvdCUyMHBvcnRyYWl0fGVufDF8fHx8MTc3NTE2Nzc0MXww&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral"
+                src="/images/profile-placeholder.svg"
                 alt="Peter Zhu"
                 className="w-full h-[500px] object-cover"
               />

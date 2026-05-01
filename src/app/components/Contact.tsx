@@ -34,7 +34,7 @@ export function Contact({ lang }: ContactProps) {
 
   const contactInfo = [
     { icon: Mail, label: isZh ? '邮箱' : 'Email', value: 'hzhu1220@outlook.com', link: 'mailto:hzhu1220@outlook.com' },
-    { icon: Phone, label: isZh ? '电话' : 'Phone', value: '(202) 594-5029', link: 'tel:+12025945029' },
+    { icon: Phone, label: isZh ? '电话' : 'Phone', value: '4104587621', link: 'tel:+14104587621' },
     { icon: MapPin, label: isZh ? '所在地' : 'Location', value: 'Edison, NJ', link: null },
   ];
 

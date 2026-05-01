@@ -9,6 +9,7 @@ type ExperienceItem = {
   location: string;
   period: string;
   bullets: string[];
+  link?: string;
 };
 
 type ExperienceProps = {
@@ -39,6 +40,7 @@ export function Experience({ lang }: ExperienceProps) {
           type: '实习',
           location: 'Newark, CA',
           period: '2024.05 – 2024.08',
+          link: 'https://hanyu1234.github.io/Task-Management-Platform/',
           bullets: [
             '基于 Spring Boot(MVC/Data/Cloud) + JPA 搭建任务管理平台后端，模块化且可扩展。',
             '使用 Spring Security + JWT 做 RBAC 权限控制，接口通过 Swagger/OpenAPI 文档化。',
@@ -78,6 +80,7 @@ export function Experience({ lang }: ExperienceProps) {
           type: 'Intern',
           location: 'Newark, CA',
           period: 'May 2024 – Aug 2024',
+          link: 'https://hanyu1234.github.io/Task-Management-Platform/',
           bullets: [
             'Built a task management platform with Spring Boot (MVC/Data/Cloud) + JPA.',
             'Implemented Spring Security + JWT RBAC with Swagger/OpenAPI documentation.',
@@ -136,6 +139,16 @@ export function Experience({ lang }: ExperienceProps) {
                     <Building2 className="inline shrink-0" size={20} />
                     {job.company}
                   </p>
+                  {job.link && (
+                    <a
+                      href={job.link}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="inline-block mt-2 text-sm font-medium text-blue-900 hover:text-cyan-700 transition-colors"
+                    >
+                      View TechStack {'->'}
+                    </a>
+                  )}
                 </div>
                 <div className="text-sm text-gray-600 md:text-right shrink-0 space-y-1">
                   <p className="flex items-center gap-2 md:justify-end">

@@ -8,6 +8,7 @@ type Project = {
   meta: string;
   image: string;
   tech: string[];
+  link?: string;
 };
 
 type ProjectsProps = {
@@ -27,6 +28,7 @@ export function Projects({ lang }: ProjectsProps) {
           image:
             'https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080',
           tech: ['PyTorch', 'Python', 'Signal processing', 'Research'],
+          link: 'https://hanyu1234.github.io/MedicalAI-ECGSegment/',
         },
         {
           title: '学生记录聚类与考勤系统',
@@ -56,6 +58,7 @@ export function Projects({ lang }: ProjectsProps) {
           image:
             'https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080',
           tech: ['PyTorch', 'Python', 'Signal processing', 'Research'],
+          link: 'https://hanyu1234.github.io/MedicalAI-ECGSegment/',
         },
         {
           title: 'Student Records Clustering & Attendance',
@@ -129,6 +132,16 @@ export function Projects({ lang }: ProjectsProps) {
                     </span>
                   ))}
                 </div>
+                {project.link && (
+                  <a
+                    href={project.link}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="inline-block mt-4 text-blue-900 hover:text-cyan-700 font-medium transition-colors"
+                  >
+                    View Project {'->'}
+                  </a>
+                )}
               </div>
             </motion.div>
           ))}
